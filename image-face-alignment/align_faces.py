@@ -14,14 +14,14 @@ ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--shape-predictor", required=True,
 help="path to facial landmark predictor")
 ap.add_argument("-i", "--imageDir", required=True,
-help="path to input image")
+help="path to input image directory")
 args = vars(ap.parse_args())
 
 img_dir_path = args["imageDir"]
 onlyfiles = [f for f in listdir(img_dir_path) if isfile(join(img_dir_path, f)) and f.split(".")[1] == "jpg"]
 
 for file in onlyfiles:
-    print(file)
+    print(f"Processing image {file}")
     img_file_name = f"{img_dir_path}/{file}"
 
     # initialize dlib's face detector (HOG-based) and then create
